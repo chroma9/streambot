@@ -5,7 +5,7 @@ default_format = '''
 CCome watch them live: https://www.twitch.tv/[USERNAME]
 '''
 
-class MessageFormat:
+class FormatSystem:
     def __init__(self):
         self.directory = str('formats')
         self.formats = {}
