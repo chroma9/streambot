@@ -58,5 +58,3 @@ class Reporter:
 
         if self.output_to_file:
             self.file.write(f'{ts_current} {type_upper} {event} {message}\n')
-
-report = Reporter()
