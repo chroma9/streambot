@@ -1,3 +1,4 @@
+import os
 import discord
 
 from discord.ext import commands
@@ -23,4 +24,11 @@ async def on_ready():
     print(f"Connected as {client.user.id}")
 
 if __name__ == '__main__':
-    formats.load_formats()
+    report.info("discord.process", "Starting core system...")
+    report.info("discord.process", "Loading message formats...")
+    if os.path.exists('formats'):
+        formats.load_formats()
+        report.info("discord.process", "Message formats loaded successfully.")
+    else:
+        report.warn("discord.process", "No custom formats were found.")
+        report.warn("discord.process", "Please check the documentation for more information.")
