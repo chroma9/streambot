@@ -8,14 +8,14 @@ class Reporter:
 
         self.file_dir = str('logs')
         self.file_name = str('0000-00-00.log')
-        self.file_path = str(f'{self.file_dir}/{self.file_name}')
+        self.file_path = str(f"{self.file_dir}/{self.file_name}")
         self.file = None
     
     def _update_file(self):
         date = datetime.now()
 
         self.file_name = date.strftime('%Y-%m-%d.log')
-        self.file_path = str(f'{self.file_dir}/{self.file_name}')
+        self.file_path = str(f"{self.file_dir}/{self.file_name}")
         self.file = open(self.file_path, 'a')
     
     def warn(self, event, message):
@@ -43,18 +43,18 @@ class Reporter:
         styling['success'] = '\033[92m' + styling['bold']
         styling['event'] = '\033[35m'
 
-        date_template = str(f'%Y-%m-%d %H:%M:%S')
+        date_template = str(f"%Y-%m-%d %H:%M:%S")
         timestamp = datetime.now()
 
         ts_current = timestamp.strftime(date_template)
-        ts_color = str(f'{styling['time']}{ts_current}{styling['reset']}')
+        ts_color = str(f"{styling['time']}{ts_current}{styling['reset']}")
 
-        type_upper = str(f'{type}').upper().ljust(8, ' ')
-        type_color = str(f'{styling[type]}{type_upper}{styling['reset']}')
+        type_upper = str(f"{type}").upper().ljust(8, ' ')
+        type_color = str(f"{styling[type]}{type_upper}{styling['reset']}")
 
-        evn_color = str(f'{styling['event']}{event}{styling['reset']}')
+        evn_color = str(f"{styling['event']}{event}{styling['reset']}")
 
-        print(f'{ts_color} {type_color} {evn_color} {message}')
+        print(f"{ts_color} {type_color} {evn_color} {message}")
 
         if self.output_to_file:
-            self.file.write(f'{ts_current} {type_upper} {event} {message}\n')
+            self.file.write(f"{ts_current} {type_upper} {event} {message}\n")
