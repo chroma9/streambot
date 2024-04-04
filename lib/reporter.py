@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from lib.configuration import config
+
 class Reporter:
-    def __init__(self, output_to_file=False):
-        self.output_to_file = output_to_file
+    def __init__(self):
+        self.output_to_file = config.get_bool('LOGGING', 'output_to_file')
 
         self.file_dir = str('logs')
         self.file_name = str('0000-00-00.log')
