@@ -24,5 +24,3 @@ class Configuration:
         self.config.set(section, key, value)
         with open('config.ini', 'w') as configfile:
             self.config.write(configfile)
-
-config = Configuration()
