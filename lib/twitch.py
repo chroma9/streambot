@@ -8,14 +8,8 @@ class TwitchSystem:
         url = str(f'https://www.twitch.tv/{username}')
         content = requests.get(url).content.decode('utf-8')
         if 'isLiveBroadcast' in content:
-            if username in self.live_streams:
-                return True
-            else:
-                self.live_streams.append(username)
-                return True
+            return True
         else:
-            if username in self.live_streams:
-                self.live_streams.remove(username)
             return False
 
     def current_live_streams(self):
