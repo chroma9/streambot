@@ -21,7 +21,8 @@ formats = FormatSystem()
 @client.event
 async def on_ready():
     # Temporary Job
-    print(f"Connected as {client.user.id}")
+    report.success("discord.process", "Discord client is ready!")
+
 
 if __name__ == '__main__':
     report.info("discord.process", "Starting core system...")
