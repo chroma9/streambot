@@ -1,6 +1,7 @@
 import os
 import discord
 import requests
+import time
 
 from discord.ext import commands
 
@@ -54,6 +55,11 @@ def check_live_streams():
             if un in live_streams:
                 report.info("twitch.process", f"{un} has gone offline!")
                 live_streams.remove(un)
+
+def stream_check_loop():
+    while True:
+        check_live_streams()
+        time.sleep(60 * 5)
 
 
 if __name__ == '__main__':
